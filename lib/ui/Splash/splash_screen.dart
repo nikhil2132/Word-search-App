@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:word_search/ui/home/crossword_screen.dart';
 import 'package:word_search/ui/intro/intro_screen.dart';
 
 class SplashScreen extends StatefulWidget {
