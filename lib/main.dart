@@ -2,7 +2,7 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:word_search/bloc/crossword_bloc.dart';
-import 'package:word_search/ui/splash_screen.dart';
+import 'package:word_search/ui/Splash/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());

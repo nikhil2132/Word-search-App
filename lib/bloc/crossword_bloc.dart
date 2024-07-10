@@ -30,6 +30,7 @@ class CrosswordBloc extends Bloc<CrosswordEvent, CrosswordState> {
   void _onSearchWord(SearchWord event, Emitter<CrosswordState> emit) {
     final word = event.word.toUpperCase();
     List<Position> matches = [];
+    bool wordfound = false;
 
     if (word.isEmpty) {
       emit(state.copyWith(message: '', wordFound: false, matches: []));
@@ -43,7 +44,11 @@ class CrosswordBloc extends Bloc<CrosswordEvent, CrosswordState> {
       emit(state.copyWith(
           message: 'Word found!', wordFound: true, matches: matches));
     } else {
+      emit(state
+          .copyWith(message: 'Word not found!', wordFound: false, matches: []));
       audioPlayer.play(AssetSource('sounds/error.mp3'));
+    }
+    if (!wordfound) {
       emit(state
           .copyWith(message: 'Word not found!', wordFound: false, matches: []));
     }

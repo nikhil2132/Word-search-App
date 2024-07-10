@@ -54,7 +54,7 @@ class CrosswordScreenState extends State<CrosswordScreen> {
           centerTitle: true,
           elevation: 4,
           title: const Text(
-            'Word Search App',
+            'Crossword',
             style: TextStyle(
               fontWeight: FontWeight.bold,
             ),
@@ -102,7 +102,7 @@ class CrosswordScreenState extends State<CrosswordScreen> {
                     final rows = state.grid.length;
                     final cols = state.grid[0].length;
 
-                    return grids(cols, rows, state);
+                    return _grids(cols, rows, state);
                   },
                 ),
               ),
@@ -113,7 +113,7 @@ class CrosswordScreenState extends State<CrosswordScreen> {
     );
   }
 
-  GridView grids(int cols, int rows, CrosswordState state) {
+  Widget _grids(int cols, int rows, CrosswordState state) {
     return GridView.builder(
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: cols,
@@ -161,8 +161,7 @@ class CrosswordScreenState extends State<CrosswordScreen> {
     );
   }
 
-  AlertDialog _alertDialog(
-      String letter, BuildContext context, int row, int col) {
+  Widget _alertDialog(String letter, BuildContext context, int row, int col) {
     return AlertDialog(
       title: const Text('Enter Letter'),
       content: TextField(
@@ -189,7 +188,7 @@ class CrosswordScreenState extends State<CrosswordScreen> {
     );
   }
 
-  MaterialButton _cancelButton() {
+  Widget _cancelButton() {
     return MaterialButton(
       onPressed: _clearSearch,
       child: const Text(
@@ -201,7 +200,7 @@ class CrosswordScreenState extends State<CrosswordScreen> {
     );
   }
 
-  Expanded _textField() {
+  Widget _textField() {
     return Expanded(
       child: Material(
         borderRadius: BorderRadius.circular(10),
@@ -229,7 +228,7 @@ class CrosswordScreenState extends State<CrosswordScreen> {
     );
   }
 
-  Drawer _drawer() {
+  Widget _drawer() {
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
